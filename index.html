@@ -1,0 +1,1372 @@
+<html>
+	<head>
+		<meta httZur-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=deviMitte-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+		<title>
+<script>
+
+
+</script>
+		</title>
+
+		<style>
+			.button {
+				background: url();
+				padding: 0px;
+				height: 45px;
+				margin: 16%;
+				-moz-border-radius:15px;
+				-webkit-border-radius: 15px;
+				border-radius: 15px;
+				float: left;
+				width: 60px;
+			}
+			.button a {
+				text-transform: uppercase;
+				text-decoration: none;
+				font: bold 18px "Trajan Pro";
+				color: #000000;
+				display: block;
+				height: 18px;
+				padding: 8px 20px;
+				-moz-text-shadow: 1px 1px 2px #310402;
+				-webkit-text-shadow:1px 1px 2px #310402;
+				text-shadow:1px 1px 2px #310402;
+				text-align: center;
+			}
+			.buttonb {
+				background: url() ;
+				padding: 0px;
+				height: 35px;
+				margin: 4%;
+				-moz-border-radius:15px;
+				-webkit-border-radius: 15px;
+				border-radius: 15px;
+				float: left;
+				width: 40px;
+			}
+			.mainContent {
+			    FONT-WEIGHT: bolder;
+				FONT-SIZE: 20px;
+				COLOR: white;
+				FONT-FAMILY: Verdana;
+				LETTER-SPACING: 2px;
+				height: 250px;
+			}
+			.cellContent {
+			    FONT-WEIGHT: bolder;
+				FONT-SIZE: 24px;
+				COLOR: white;
+				FONT-FAMILY: Verdana;
+				LETTER-SPACING: 0px;
+            				margin: 4%;
+			}			
+			.courseList {
+			    FONT-WEIGHT: bolder;
+				FONT-SIZE: 18px;
+				COLOR: white;
+				FONT-FAMILY: Verdana;
+				LETTER-SPACING: 2px;
+			}
+			</style>
+			
+		<script language="javascript" type="text/javascript">
+			var currentLoch = 1;
+			var currentLng = 0.00000;
+			var currentLat = 0.00000;
+			var isTracking = 0;
+			var watchID = 0;
+			var currentPostion;
+			var isUpdating = 0;
+			var validDistance = 70000000;
+			var m2Y = 1;
+			var dot = 0;
+			var dots = new Array(".", "..", "...");
+
+			function updateLocation() {
+				navigator.geolocation.getCurrentPosition(showLocation, showError, {enableHighAccuracy:true,maximumAge:2000});
+				// navigator.geolocation.getCurrentPosition(showLocation, showError, {maximumAge:2000});
+			}
+			
+			function getLocation() {
+				outofrangespan.innerHTML = "Getting GPS signal" + dots[dot];
+				dot = ++dot % 3;
+				outofrange.style.display = "block";	
+				updateLocation();
+				if (watchID != 0)
+					clearInterval(watchID);
+				
+				// watchID = window.setInterval(updateLocation, 1000);
+				watchID = window.setInterval(getLocation, 3000);
+
+				/*
+				if (watchID > 0)
+					navigator.geolocation.clearWatch(watchID);
+				watchID = navigator.geolocation.watchPosition(showLocation, showError, {enableHighAccuracy:true,maximumAge:2000});
+				*/
+
+			}
+			
+var Lochdata1=new Array( "2,4,O1,","1,4,S1,48.313932,15.91108", "1,4,Y1,48.313995,15.91086","1,4,W1,48.314124,15.910714", "1,4,R1,48.312042,15.912591", "1,4,R2,48.311988,15.912753", "1,4,R1,48.311973,15.912794", "1,4,R2,48.311901,15.912956", "1,4,1,48.315422904390914,15.910894721746445", "1,4,1,48.3156538991975,15.911566615104675", "1,4,G1,48.311659,15.913696", "1,4,G2,48.311606,15.913836", "1,4,G3,48.311547,15.913963");
+var Lochdata2=new Array( "2,4,TW1,","2,4,S1,48.316352,15.913074", "2,4,Y1,48.311048,15.914725","2,4,W1,48.310829,15.914539", "2,4,R1,48.312626,15.916458", "2,4,R2,48.312756,15.916578", "2,4,L1,48.312728,15.915976", "2,4,L2,48.312826,15.916106", "2,4,1,48.31430180663325,15.91325506567955", "2,4,H1,48.311980155148895,15.91519296169281", "8,4,H2,48.31267585895626,15.91583400964737", "2,4,1,48.31385496605503,15.913179963827133", "2,4,G1,48.31359988165503,15.917180478572845", "2,4,G2,48.313698,15.917296", "2,4,G3,48.313793,15.917399");
+
+var Lochdata3=new Array( "3,3,G1,48.314669,15.918091", "3,3,G2,48.314744,15.918168", "5,3,G3,48.314816,15.918229");
+
+var Lochdata4=new Array( "4,5,S1,48.31454,15.919173", "4,5,Y1,48.314883,15.919499","4,4,W1,48.315041,15.919657", "3,4,R1,48.312993,15.917179", "3,4,R2,48.312993,15.917179", "3,4,R1,48.313552,15.917683", "3,4,R2,48.313384,15.917514", "3,4,L1,48.313521,15.91808", "3,4,L2,48.313406,15.917989", "3,4,L1,48.312481,15.917193", "3,4,L2,48.312314,15.917071", "3,4,1,48.31406723811507,15.91534048318863", "3,4,1,48.31452834706822,15.915359258651733", "3,4,G1,48.311893,15.916353", "3,4,G2,48.311823,15.916204", "3,4,G3,48.311762,15.916018");
+var Lochdata5=new Array( "5,3,H1,48.311528,15.916043", "5,3,H2,48.310976,15.915225", "5,3,G1,48.310902,15.915157", "5,3,G2,48.31085,15.91507", "5,3,G3,48.310804,15.914974");
+
+var Lochdata6=new Array( "6,4,S1,48.31049,15.914433", "6,4,1,48.31294343481804,15.915273427963257", "6,5,Y1,48.310414,15.914788","6,5,W1,48.310293,15.915141", "6,5,L1,48.311079,15.913207", "6,5,L2,48.311144,15.913087", "6,5,L1,48.311251,15.912961", "6,5,L2,48.311361,15.912818", "6,5,1,48.31310576349033,15.915396809577942", "6,5,1,48.31268656201768,15.915152728557587", "6,5,G1,48.311803,15.911694", "6,5,G2,48.311876,15.911548", "6,5,G3,48.311943,15.911407");
+
+
+var Lochdata7=new Array( "7,Dieses Loch wird noch gebaut und wird Mitte der Saison 2014 fertig sein. Bitte gehen Sie weiter auf Loch 11 ,1,48.316243,15.904563"); 
+var Lochdata8=new Array( "8,Dieses Loch wird noch gebaut und wird Mitte der Saison 2014 fertig sein. Bitte gehen Sie weiter auf Loch 11,G1,48.316243,15.904563"); 
+var Lochdata9=new Array( "9,Dieses Loch wird noch gebaut und wird Mitte der Saison 2014 fertig sein. Bitte gehen Sie weiter auf Loch 11,G1,48.316243,15.904563"); 
+var Lochdata10=new Array( "10,Dieses Loch wird noch gebaut und wird Mitte der Saison 2014 fertig sein. Bitte gehen Sie weiter auf Loch 11,G1,48.316243,15.904563"); 
+
+
+
+
+var currentLochData = Lochdata1;   
+
+			
+			function showTracking() {
+				currentLochData = eval("Lochdata" + currentLoch);
+				var m = currentLochData[0].split(",");
+				Loch.innerHTML="Loch " + currentLoch + " Par " + m[1];
+				
+				mainContent.style.height="950px";
+				gpsinfo.style.display="block";
+				// locrefresh.style.display="block";
+				
+				Anfang.innerHTML = "";
+				Mitte.innerHTML = "";
+				Hinten.innerHTML = "";
+				lbunker1.innerHTML = "";
+				lbunker2.innerHTML = "";
+				lbunker3.innerHTML = "";
+
+
+                xbunker1.innerHTML = "";
+				xbunker2.innerHTML = "";
+				xbunker3.innerHTML = "";
+
+
+				rbunker1.innerHTML = "";
+				rbunker2.innerHTML = "";
+				rbunker3.innerHTML = "";
+				harzard1.innerHTML = "";
+				harzard2.innerHTML = "";
+				harzard3.innerHTML = "";
+				fairway.innerHTML = "";
+                iron.innerHTML = ""; 
+                white.innerHTML = ""; 
+                yellow.innerHTML = ""; 
+				dogleg.innerHTML = "";
+                tree.innerHTML = "";
+              que.innerHTML = "";
+              schwarz.innerHTML = "";
+
+               one.innerHTML = "";
+      two.innerHTML = "";
+
+             three.innerHTML = "";
+four.innerHTML = "";
+five.innerHTML = "";
+six.innerHTML = "";
+seven.innerHTML = "";
+eight.innerHTML = "";
+nine.innerHTML = "";
+ten.innerHTML = "";
+eleven.innerHTML = "";
+twelve.innerHTML = "";
+thirteen.innerHTML = "";
+fourteen.innerHTML = "";
+fiveteen.innerHTML = "";
+sixteen.innerHTML = "";
+seventeen.innerHTML = "";
+eighteen.innerHTML = "";
+
+				
+				// spaceloading.style.display = "block";
+				// loading.style.display = "block";
+				spacelb1.style.display = "none";
+				spacelb2.style.display = "none";
+				spacelb3.style.display = "none";
+
+                spacexb1.style.display = "none";
+				spacexb2.style.display = "none";
+				spacexb3.style.display = "none";
+
+				spacerb1.style.display = "none";
+				spacerb2.style.display = "none";
+				spacerb3.style.display = "none";
+				spaceh1.style.display = "none";
+				spaceh2.style.display = "none";
+				spaceh3.style.display = "none";
+				spacef.style.display = "none";
+				spacei.style.display = "none";
+                spacew.style.display = "none";
+                 spacey.style.display = "none";
+				spaced.style.display = "none";
+                spacet.style.display = "none";
+                spaceq.style.display = "none";
+                              spaces.style.display = "none";
+
+
+               spaceo.style.display = "none";
+                                                          spacetw.style.display = "none";
+
+
+spacethh.style.display = "none";
+spacefo.style.display = "none";
+spacefi.style.display = "none";
+spacesii.style.display = "none";
+spacese.style.display = "none";
+spaceei.style.display = "none";
+spacenin.style.display = "none";
+spacete.style.display = "none";
+spaceele.style.display = "none";
+spacetwe.style.display = "none";
+spacethi.style.display = "none";
+spacefou.style.display = "none";
+spacefiv.style.display = "none";
+spacesiv.style.display = "none";
+spacesev.style.display = "none";
+spaceeig.style.display = "none";
+
+
+				
+				lb1row.style.display="none";
+				lb2row.style.display="none";
+				lb3row.style.display="none";
+
+
+              xb1row.style.display="none";
+				xb2row.style.display="none";
+				xb3row.style.display="none";
+
+
+				rb1row.style.display="none";
+				rb2row.style.display="none";
+				rb3row.style.display="none";
+				h1row.style.display="none";
+				h2row.style.display="none";
+				h3row.style.display="none";
+				frow.style.display="none";
+				irow.style.display="none";
+              wrow.style.display="none";
+                yrow.style.display="none";
+				drow.style.display="none";
+
+              				trow.style.display="none";
+                            				qrow.style.display="none";
+                                          				srow.style.display="none";
+
+
+
+
+              orow.style.display="none";
+                                                                      				twrow.style.display="none";
+                                                                      				thhrow.style.display="none";
+                                                                                    				forow.style.display="none";
+              firow.style.display="none";
+siirow.style.display="none";
+serow.style.display="none";
+eirow.style.display="none";
+ninrow.style.display="none";
+terow.style.display="none";
+elerow.style.display="none";
+twerow.style.display="none";
+thirow.style.display="none";
+fourow.style.display="none";
+fivrow.style.display="none";
+sivrow.style.display="none";
+sevrow.style.display="none";
+eigrow.style.display="none";
+
+				
+				if (typeof(currentPosition) != "undefined")
+					showPosition();
+				// getLocation();
+			}
+			
+			function ZurLoch() {
+				if (currentLoch == 1)
+					currentLoch = 18;
+				else
+					currentLoch--;
+				
+				showTracking();
+				LochTenHide();
+				//if (isTracking == 0) {
+					getLocation();
+					isTracking = 1;
+				//}
+			}
+
+			function VorLoch() {
+				if (currentLoch == 18)
+					currentLoch = 1;
+				else
+					currentLoch++;
+				
+				showTracking();
+				LochTenHide();
+				//if (isTracking == 0) {
+					getLocation();
+					isTracking = 1;
+				//}
+			}
+
+			function LochOne() {
+				currentLoch = 1;
+				ZurButton.style.display = "block";
+				VorButton.style.display = "block";
+				showTracking();
+				getLocation();
+				isTracking = 1;
+			}
+
+			function LochTen() {
+				currentLoch = 10;
+				ZurButton.style.display = "block";
+				VorButton.style.display = "block";
+				showTracking();
+				getLocation();
+				isTracking = 1;
+				LochTenHide();
+			}
+			
+			function LochTenHide() {
+				Loch10.style.display="none";
+				spaceh10.style.display = "none";
+			}
+			
+			function showError(error) {
+
+			}
+
+			function calculateDistance(lat1, lon1, lat2, lon2) {
+			  var R = 6364137; // km
+			  var dLat = (lat2 - lat1).toRad();
+			  var dLon = (lon2 - lon1).toRad(); 
+			  var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+					  Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) * 
+					  Math.sin(dLon / 2) * Math.sin(dLon / 2); 
+			  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)); 
+			  var d = Math.abs(R * c * 1);
+			  return d;
+			}
+			
+			Number.prototype.toRad = function() {
+			  return this * Math.PI / 180;
+			}
+			
+			function showLocation(position) {
+				// gpsinfo.innerHTML = "Got GPS signal. Signal accuracy: " + position.coords.accuracy;
+				if (position.coords.accuracy < 100) {
+					// if (isUpdating == 0) {
+						currentPostion = position;
+						showPosition();
+					// }
+					// outofrange.style.display = "none";
+				} else {
+					outofrange.style.display = "block";	
+					getLocation();
+				}
+			}
+			
+			function showPosition() {
+				isUpdating = 1;
+				var lcnt = 1;
+
+              var xcnt = 1;
+
+				var rcnt = 1;
+				var hcnt = 1;
+				var ldist = "";
+
+              var xdist = "";
+
+				var rdist = "";
+				var hdist = "";
+				var fdist = "";
+				var idist = "";
+              var wdist = "";
+                var ydist = "";
+				var ddist = "";
+
+              				var tdist = "";
+                              var qdist = "";
+                                            var sdist = "";
+
+
+				var gfdist = "";
+				var gcdist = "";
+				var gbdist = "";
+				var outOfRange = 0;
+				
+				/*
+				currentLat = position.coords.latitude;
+				currentLng = position.coords.longitude;
+				*/
+				currentLat = currentPostion.coords.latitude;
+				currentLng = currentPostion.coords.longitude;
+
+				// spaceloading.style.display = "none";
+				// loading.style.display = "none";
+
+				for (i=0; i<currentLochData.length; i++) {
+					var m = currentLochData[i].split(",");
+					var cDist = 0;
+					if (m.length == 5) 
+						cDist = calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng);
+					else
+						cDist = 0;
+	//				alert("Dist: " + cDist);
+					if (cDist > validDistance) {
+						outOfRange = 1;
+						break;
+					} else {
+						if (lcnt < 4) {
+							if (m[2] == 'L1') {
+								ldist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							}
+							if (m[2] == 'L2') {
+								ldist = ldist + "/" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+								eval("lbunker" + lcnt + ".innerHTML='" + ldist + "';");
+								eval("lb" + lcnt + "row.style.display='block';");
+								eval("spacelb" + lcnt + ".style.display='block';");
+								lcnt++;
+							}
+						
+
+
+
+
+
+
+
+                        	}	
+						if (xcnt < 4) {
+							if (m[2] == 'X1') {
+								xdist = "" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							}
+							if (m[2] == 'X2') {
+								xdist = xdist + "/" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+								eval("xbunker" + xcnt + ".innerHTML='" + rdist + "';");
+								eval("xb" + xcnt + "row.style.display='block';");
+								eval("spacexb" + xcnt + ".style.display='block';");
+								xcnt++;
+							}
+
+
+
+
+
+
+
+
+
+                        }	
+						if (rcnt < 4) {
+							if (m[2] == 'R1') {
+								rdist = "" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							}
+							if (m[2] == 'R2') {
+								rdist = rdist + "/" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+								eval("rbunker" + rcnt + ".innerHTML='" + rdist + "';");
+								eval("rb" + rcnt + "row.style.display='block';");
+								eval("spacerb" + rcnt + ".style.display='block';");
+								rcnt++;
+							}
+						}
+						if (hcnt < 4) {
+							if (m[2] == 'H1') {
+								hdist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							}
+							if (m[2] == 'H2') {
+								hdist = hdist + "/" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+								eval("harzard" + hcnt + ".innerHTML='" + hdist + "';");
+								eval("h" + hcnt + "row.style.display='block';");
+								eval("spaceh" + hcnt + ".style.display='block';");
+								hcnt++;
+							}
+						}
+						if (m[2] == 'F1') {
+							fdist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							fairway.innerHTML = fdist;
+							frow.style.display = "block";
+							spacef.style.display = "block";
+                        }
+						if (m[2] == 'I1') {
+							idist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							iron.innerHTML = idist;
+							irow.style.display = "block";
+							spacei.style.display = "block";
+
+
+
+
+
+
+                          }  
+
+
+
+
+                        if (m[2] == 'O1') {
+							odist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							one.innerHTML = sdist;
+							orow.style.display = "block";
+							spaceo.style.display = "block";
+
+
+                        }
+
+
+                         if (m[2] == 'TW1') {
+							twdist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							one.innerHTML = sdist;
+							twrow.style.display = "block";
+							spacetw.style.display = "block";
+
+
+                        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        if (m[2] == 'THH1') {
+							thhdist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							three.innerHTML = sdist;
+							thhrow.style.display = "block";
+							spacethh.style.display = "block";
+
+
+
+
+			}
+
+
+
+
+
+
+                        if (m[2] == 'FO1') {
+							fodist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							four.innerHTML = sdist;
+							forow.style.display = "block";
+							spacefo.style.display = "block";
+
+
+                        }
+
+
+                       if (m[2] == 'FI1') {
+							fidist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							five.innerHTML = sdist;
+							firow.style.display = "block";
+							spacefi.style.display = "block";
+
+
+
+
+                        }
+
+
+
+                       if (m[2] == 'SI1') {
+							sidist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							six.innerHTML = sdist;
+							siirow.style.display = "block";
+							spacesii.style.display = "block";
+
+                         }
+
+
+
+
+  if (m[2] == 'SE1') {
+							sedist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							seven.innerHTML = sdist;
+							serow.style.display = "block";
+							spacese.style.display = "block";
+
+
+                        }
+
+
+  if (m[2] == 'EI1') {
+							eidist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							eight.innerHTML = sdist;
+							eirow.style.display = "block";
+							spaceei.style.display = "block";
+
+
+                         }
+
+
+  if (m[2] == 'NIN1') {
+							nindist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							nine.innerHTML = sdist;
+							ninrow.style.display = "block";
+							spacenin.style.display = "block";
+
+
+
+
+                        }
+
+
+  if (m[2] == 'TEN1') {
+							tedist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							ten.innerHTML = sdist;
+							terow.style.display = "block";
+							spacete.style.display = "block";
+
+
+                        }
+
+
+
+if (m[2] == 'ELE1') {
+							eledist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							eleven.innerHTML = sdist;
+							elerow.style.display = "block";
+							spaceele.style.display = "block";
+
+
+                        }
+if (m[2] == 'TWE1') {
+							twedist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							twelve.innerHTML = sdist;
+							twerow.style.display = "block";
+							spacetwe.style.display = "block";
+
+
+                        }
+if (m[2] == 'THI1') {
+							thidist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							thirteen.innerHTML = sdist;
+							thirow.style.display = "block";
+							spacethi.style.display = "block";
+
+
+                        }
+if (m[2] == 'FOU1') {
+							foudist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							fourteen.innerHTML = sdist;
+							fourow.style.display = "block";
+							spacefou.style.display = "block";
+
+
+                        }
+if (m[2] == 'FIV1') {
+							fivdist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							fiveteen.innerHTML = sdist;
+							fivrow.style.display = "block";
+							spacefiv.style.display = "block";
+
+
+                        }
+if (m[2] == 'SIV1') {
+							sivdist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							sixteen.innerHTML = sdist;
+							sivrow.style.display = "block";
+							spacesiv.style.display = "block";
+
+
+                        }
+if (m[2] == 'SEV1') {
+							sevdist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							seventeen.innerHTML = sdist;
+							sevrow.style.display = "block";
+							spacesev.style.display = "block";
+
+
+                        }
+
+if (m[2] == 'EIG1') {
+							eigdist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							eighteen.innerHTML = sdist;
+							eigrow.style.display = "block";
+							spaceeig.style.display = "block";
+
+
+
+
+
+                         }  
+
+
+                        if (m[2] == 'S1') {
+							sdist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							schwarz.innerHTML = sdist;
+							srow.style.display = "block";
+							spaces.style.display = "block";
+
+
+                        }
+						if (m[2] == 'W1') {
+							wdist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							white.innerHTML = wdist;
+							wrow.style.display = "block";
+							spacew.style.display = "block";
+						}
+                      if (m[2] == 'Y1') {
+							ydist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							yellow.innerHTML = ydist;
+							yrow.style.display = "block";
+							spacey.style.display = "block";
+						}
+						if (m[2] == 'D1') {
+							ddist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							dogleg.innerHTML = ddist;
+							drow.style.display = "block";
+							spaced.style.display = "block";
+						}
+
+
+
+
+                      		if (m[2] == 'Q1') {
+							qdist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							que.innerHTML = qdist;
+							qrow.style.display = "block";
+							spaceq.style.display = "block";
+						}
+
+
+
+						if (m[2] == 'T1') {
+							tdist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							tree.innerHTML = tdist;
+							trow.style.display = "block";
+							spacet.style.display = "block";
+						}
+
+
+						if (m[2] == 'G1') {
+							gfdist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							Anfang.innerHTML = gfdist;
+						}					
+						if (m[2] == 'G2') {
+							gcdist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							Mitte.innerHTML = gcdist;
+						}					
+						if (m[2] == 'G3') {
+							gbdist = "&nbsp;" + Math.ceil(calculateDistance(parseFloat(m[3]), parseFloat(m[4]), currentLat, currentLng));
+							Hinten.innerHTML = gbdist;
+						}					
+					}
+				}
+				if (outOfRange == 1) {
+					outofrange.style.display = "block";
+				} else {
+					if (dot == 0) {
+						outofrange.style.display = "none";
+						space1.style.display = "none";
+						spaceg3.style.display = "none";
+					}
+					spaceg0.style.display = "block";
+					Hintenrow.style.display = "block";
+					spaceg1.style.display = "block";
+					Mitterow.style.display = "block";
+					spaceg2.style.display = "block";
+					Anfangrow.style.display = "block";
+					spaceg3.style.display = "block";
+					if ((rcnt > 1) || (lcnt > 1) || (hcnt > 1) || (fdist.length > 1) || (idist.length > 1)|| (ddist.length > 1)) {
+						space1.style.display = 'block';
+						space2.style.display = 'block';
+					}
+				}
+				isUpdating = 0;
+			}
+			
+			
+			
+		</script>
+	</head>
+	<body bgcolor="#cccccc" onload="LochOne();">
+		<table width="308px" border="0" cellSpacing="0" cellPadding="0">
+			<tr>
+				<td width="40px"><input id="ZurButton" type="button" class="button" value="<" onclick="ZurLoch()" style="color:white; font: bold; font-size: 30px; display:none" /></td>
+				<td width="150px" align="center"><label id="Loch" style="color:white; font: bold; font-family: Verdana; font-size: 20px">Loch : Par</label></td>
+				<td width="40px"><input id="VorButton" type="button" class="button" value=">" onclick="VorLoch()" style="color:white; font: bold; font-size: 30px; display:none" /></td>
+			</tr>
+			<tr height="5px"><td colSpan=3></td></tr>
+			<tr id="spacegh10" bgcolor="white">
+				<td colSpan="3" height="1px"></td>
+			</tr>					
+			<tr id="Loch10">
+				<td width="83px">&nbsp;</td>
+				<td>
+					<div>
+						<input type="button" value="back 9" class="button" onclick="LochTen()" style="width:100px; color:white; font: bold; font-size: 24px" />
+					</div>
+				</td>
+				<td width="86px">&nbsp;</td>
+			</tr>
+			<tr>
+				<td colSpan=3>
+					<div id="mainContent" class="mainContent">
+						<table cellspacing="0" cellpadding="0" border="0" width="100%">
+							<tr style="display:none" id="spaceg0" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+							</tr>						
+							<tr id="Anfangrow" style="display:none">
+								<td width="140px" align="right"><span class="cellContent">Anfang&nbsp;</span></td>
+								<td><img border="0" src=“”></td>
+								<td><span id="Anfang" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spaceg3" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+							</tr>
+							<tr id="Mitterow" style="display:none">
+								<td width="140px" align="right"><span class="cellContent">Mitte&nbsp;</span></td>
+								<td><img border="0" src=></td>
+								<td><span id="Mitte" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spaceg2" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+							</tr>
+                          	<tr id="Hintenrow" style="display:none">
+								<td width="140px" align="right"><span class="cellContent">Hinten&nbsp;</span></td>
+								<td width="44px"><img border="0" src="" width="44px" height="44px"></td>
+								<td><span id="Hinten" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spaceg1" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+							</tr>
+						
+							<tr style="display:none" id="outofrange">
+								<td width="60px"></td><td><span id="outofrangespan" style="FONT-WEIGHT: bolder; FONT-SIZE: 12px; color: red; font-family: Verdana">Getting GPS signal...</span></td><td width="60px"></td>
+							</tr>							
+							<tr style="display:none" id="space1" bgcolor="#cccccc">
+								<td colSpan="3" height="5px"></td>
+							</tr>
+							<tr style="display:none" id="space2" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+							</tr>
+							<tr id="lb1row" style="display:none">
+								<td width="140px" align="right"><span class="cellContent">L/Bunker&nbsp;</span></td>
+								<td width="44px"><img border="0" src="" width="44px" height="44px"></td>
+								<td><span id="lbunker1" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spacelb1" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+							</tr>
+							<tr id="lb2row" style="display:none">
+								<td width="140px" align="right"><span class="cellContent">L/Bunker&nbsp;</span></td>
+								<td width="44px"><img border="0" src="" width="44px" height="44px"></td>
+								<td><span id="lbunker2" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spacelb2" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+							</tr>
+							<tr id="lb3row" style="display:none">
+								<td width="140px" align="right"><span class="cellContent">L/Bunker&nbsp;</span></td>
+								<td><img border="0" src="" width="44px" height="44px"></td>
+								<td><span id="lbunker3" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spacelb3" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+							</tr>
+
+
+
+
+
+
+
+
+							<tr id="rb1row" style="display:none">
+								<td width="140px" align="right"><span class="cellContent">R/Bunker&nbsp;</span></td>
+								<td><img border="0" src="" width="44px" height="44px"></td>
+								<td><span id="rbunker1" class="cellContent">111</span></td>
+							</tr>
+							<tr style="display:none" id="spacerb1" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+							</tr>
+							<tr id="rb2row" style="display:none">
+								<td width="140px" align="right"><span class="cellContent">R/Bunker&nbsp;</span></td>
+								<td><img border="0" src="" width="44px" height="44px"></td>
+								<td><span id="rbunker2" class="cellContent">222</span></td>
+							</tr>
+							<tr id="spacerb2" style="display:none" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+							</tr>
+							<tr id="rb3row" style="display:none">
+								<td width="140px" align="right"><span class="cellContent">R/Bunker&nbsp;</span></td>
+								<td><img border="0" src="" width="44px" height="44px"></td>
+								<td><span id="rbunker3" class="cellContent">333</span></td>
+							</tr>
+							<tr style="display:none" id="spacerb3" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+							</tr>
+
+
+
+
+
+
+                             <tr id="xb1row" style="display:none">
+								<td width="140px" align="right"><span class="cellContent">M/Bunker&nbsp;</span></td>
+								<td width="44px"><img border="0" src="" width="44px" height="44px"></td>
+								<td><span id="xbunker1" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spacexb1" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+							</tr>
+							<tr id="xb2row" style="display:none">
+								<td width="140px" align="right"><span class="cellContent">m/Bunker&nbsp;</span></td>
+								<td width="44px"><img border="0" src="/images/Sandtrap.png" width="44px" height="44px"></td>
+								<td><span id="xbunker2" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spacexb2" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+							</tr>
+							<tr id="xb3row" style="display:none">
+								<td width="140px" align="right"><span class="cellContent">m/Bunker&nbsp;</span></td>
+								<td><img border="0" src="" width="44px" height="44px"></td>
+								<td><span id="xbunker3" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spacexb3" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+							</tr>
+
+
+
+
+                            <tr id="qrow" style="display:none">
+                            <td width="140px" align="right"><span class="cellContent">Zu weit&nbsp;</span></td>
+								<td><img border="0" src="" height="44px"></td>
+								<td><span id="que" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spaceq" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+						
+
+                          </tr>
+
+
+
+							<tr id="h1row" style="display:none">
+								<td width="140px" align="right"><span class="cellContent">Wasser&nbsp;</span></td>
+								<td><img border="0" src="" width="44px" height="44px"></td>
+								<td><span id="harzard1" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spaceh1" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+							</tr>
+							<tr id="h2row" style="display:none">
+								<td width="140px" align="right"><span class="cellContent">Wasser&nbsp;</span></td>
+								<td><img border="0" src="" height="44px"></td>
+								<td><span id="harzard2" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spaceh2" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+							</tr>
+							<tr id="h3row" style="display:none">
+								<td width="140px" align="right"><span class="cellContent">Wasser&nbsp;</span></td>
+								<td><img border="0" src="" width="44px" height="44px"></td>
+								<td><span id="harzard3" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spaceh3" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+							</tr>
+
+
+                            <tr id="trow" style="display:none">
+                            <td width="140px" align="right"><span class="cellContent">M/Baum&nbsp;</span></td>
+								<td><img border="0" src="" width="44px" height="44px"></td>
+								<td><span id="tree" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spacet" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+						
+
+                          </tr>
+
+
+
+
+							<tr id="frow" style="display:none">
+								<td width="140px" align="right"><span class="cellContent">Zur&nbsp;</span></td>
+								<td><img border="0" src="" width="44px" height="44px"></td>
+								<td><span id="fairway" class="cellContent"></span></td>
+                              </tr>
+                           <tr style="display:none" id="spacef" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+							</tr>
+							<tr id="irow" style="display:none">
+								<td width="140px" align="right"><span class="cellContent">Zur&nbsp;</span></td>
+								<td><img border="0" src="" width="44px" height="44px"></td>
+								<td><span id="iron" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spacei" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+							</tr>
+
+
+
+
+							<tr id="drow" style="display:none">
+								<td width="140px" align="right"><span class="cellContent">DogLeg&nbsp;</span></td>
+								<td><img border="0" src="" width="44px" height="44px"></td>
+								<td><span id="dogleg" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spaced" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+						
+
+
+
+
+
+
+                          </tr>
+
+                          <tr id="wrow" style="display:none">
+								<td width="140px" align="right"><span class="cellContent">Von Tee&nbsp;</span></td>
+								<td><img border="0" src="" width="44px" height="44px"></td>
+								<td><span id="white" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spacew" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+							</tr>
+
+                            <tr id="yrow" style="display:none">
+								<td width="140px" align="right"><span class="cellContent">Von Tee&nbsp;</span></td>
+								<td><img border="0" src=""></td>
+								<td><span id="yellow" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spacey" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+							
+
+
+
+
+</tr>
+
+
+
+
+
+
+                            <tr id="srow" style="display:none">
+								<td width="140px" align="right"><span class="cellContent">Von Tee&nbsp;</span></td>
+								<td><img border="0" src="" width="44px" height="44px"></td>
+								<td><span id="schwarz" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spaces" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+
+
+
+
+                          </tr>
+
+
+                               <tr id="orow" style="display:none">
+								<td width="0px" align="right"><span class="cellContent"></span></td>
+
+								<td><iframe border="0" src="" width="320px" height="180px">></iframe></td>
+								<td><span id="one" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spacetw" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+
+
+                              </tr>
+
+
+
+                                <tr id="twrow" style="display:none">
+								<td width="0px" align="right"><span class="cellContent"></span></td>
+								<td><img border="0" src="" width="320px" height="500px"></td>
+								<td><span id="two" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spaceo" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+
+
+                              </tr>
+
+
+
+
+
+  <tr id="thhrow" style="display:none">
+								<td width="0px" align="right"><span class="cellContent"></span></td>
+								<td><img border="0" src="" width="320px" height="100%"></td>
+								<td><span id="three" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spacethh" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+
+
+
+
+                          </tr>
+
+
+
+
+
+
+
+                          <tr id="forow" style="display:none">
+								<td width="0px" align="right"><span class="cellContent"></span></td>
+								<td><img border="0" src="" width="320px" height="100%"></td>
+								<td><span id="four" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spacefo" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+
+
+                              </tr>    
+
+<tr id="firow" style="display:none">
+								<td width="0px" align="right"><span class="cellContent"></span></td>
+								<td><img border="0" src=""></td>
+								<td><span id="five" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spacefi" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+</tr>
+
+
+
+
+
+
+
+
+<tr id="siirow" style="display:none">
+								<td width="0px" align="right"><span class="cellContent"></span></td>
+								<td><img border="0" src=""></td>
+								<td><span id="six" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spacesii" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+</tr>
+
+
+<tr id="serow" style="display:none">
+								<td width="0px" align="right"><span class="cellContent"></span></td>
+								<td><img border="0" src=""></td>
+								<td><span id="seven" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spacese" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+</tr>
+
+
+<tr id="eirow" style="display:none">
+								<td width="0px" align="right"><span class="cellContent"></span></td>
+								<td><img border="0" src=""></td>
+								<td><span id="eight" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spaceei" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+
+
+
+</tr>
+
+
+<tr id="ninrow" style="display:none">
+								<td width="0px" align="right"><span class="cellContent"></span></td>
+								<td><img border="0" src=""></td>
+								<td><span id="nine" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spacenin" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+
+
+
+</tr>
+
+
+
+
+
+<tr id="terow" style="display:none">
+								<td width="0px" align="right"><span class="cellContent"></span></td>
+								<td><img border="0" src="" width="320px" height="100%"></td>
+								<td><span id="ten" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spacete" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+<tr id="elerow" style="display:none">
+								<td width="0px" align="right"><span class="cellContent"></span></td>
+								<td><img border="0" src="" width="320px" height="100%"></td>
+								<td><span id="eleven" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spaceele" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+</tr>
+
+
+
+
+
+
+
+
+<tr id="twerow" style="display:none">
+								<td width="0px" align="right"><span class="cellContent"></span></td>
+								<td><img border="0" src="" width="320px" height="100%"></td>
+								<td><span id="twelve" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spacetwe" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+</tr>
+
+
+
+
+
+
+
+<tr id="thirow" style="display:none">
+								<td width="0px" align="right"><span class="cellContent"></span></td>
+								<td><img border="0" src="" width="320px" height="100%"></td>
+								<td><span id="thirteen" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spacethi" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+</tr>
+
+
+
+
+
+
+
+
+<tr id="fourow" style="display:none">
+								<td width="0px" align="right"><span class="cellContent"></span></td>
+								<td><img border="0" src="" width="320px" height="100%"></td>
+								<td><span id="fourteen" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spacefou" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+</tr>
+
+
+
+
+
+
+
+<tr id="fivrow" style="display:none">
+								<td width="0px" align="right"><span class="cellContent"></span></td>
+								<td><img border="0" src="" width="320px" height="100%"></td>
+								<td><span id="fiveteen" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spacefiv" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+</tr>
+
+
+
+
+
+
+
+<tr id="sivrow" style="display:none">
+								<td width="0px" align="right"><span class="cellContent"></span></td>
+								<td><img border="0" src="" width="320px" height="100%"></td>
+								<td><span id="sixteen" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spacesiv" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+</tr>
+
+
+
+
+
+
+<tr id="sevrow" style="display:none">
+								<td width="0px" align="right"><span class="cellContent"></span></td>
+								<td><img border="0" src="" width="320px" height="100%"></td>
+								<td><span id="seventeen" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spacesev" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+</tr>
+
+
+
+
+
+
+
+<tr id="eigrow" style="display:none">
+								<td width="0px" align="right"><span class="cellContent"></span></td>
+								<td><img border="0" src="" width="320px" height="100%"></td>
+								<td><span id="eighteen" class="cellContent"></span></td>
+							</tr>
+							<tr style="display:none" id="spaceeig" bgcolor="white">
+								<td colSpan="3" height="1px"></td>
+
+
+
+
+
+
+
+
+
+
+
+                          </tr>
+				
+
+
+						</table>
+
+					</div>
+				</td>
+			</tr>
+			<tr height="5px"><td colSpan=3></td></tr>
+
+		
+			<tr id="gpsinforow" style="display:none">
+				<td colSpan=3>
+					<div id="gpsinfo">No GPS signal</div>
+				</td>
+			</tr>
+		</table>
+
+	</body>
+</html>
